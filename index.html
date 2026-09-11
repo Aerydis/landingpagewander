@@ -1,435 +1,606 @@
+```html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Wander - 의미 있는 휴식, 가치 있는 지식</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-https://fonts.googleapis.com
-https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&display=swap
+    <title>Wander - 의미 있는 휴식, 가치 있는 지식</title>
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Inter, Pretendard, sans-serif;
-}
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
-body{
-background:#0b1020;
-color:white;
-overflow-x:hidden;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Inter, Pretendard, sans-serif;
+        }
 
-.background{
-position:fixed;
-width:100%;
-height:100%;
-background:
-radial-gradient(circle at 20% 20%, rgba(59,130,246,.25), transparent 40%),
-radial-gradient(circle at 80% 30%, rgba(99,102,241,.25), transparent 40%),
-radial-gradient(circle at 50% 80%, rgba(14,165,233,.20), transparent 40%);
-z-index:-1;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:24px 8%;
-}
+        body {
+            background: #0b1020;
+            color: white;
+            overflow-x: hidden;
+        }
 
-.logo{
-font-size:28px;
-font-weight:800;
-letter-spacing:-1px;
-}
+        .background {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(59, 130, 246, 0.25),
+                    transparent 40%
+                ),
+                radial-gradient(
+                    circle at 80% 30%,
+                    rgba(99, 102, 241, 0.25),
+                    transparent 40%
+                ),
+                radial-gradient(
+                    circle at 50% 80%,
+                    rgba(14, 165, 233, 0.20),
+                    transparent 40%
+                );
+            z-index: -1;
+        }
 
-.logo span{
-color:#60a5fa;
-}
+        /* Navigation */
 
-.nav-btn{
-padding:12px 20px;
-border-radius:999px;
-background:#2563eb;
-border:none;
-color:white;
-font-weight:600;
-cursor:pointer;
-}
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 8%;
+        }
 
-.hero{
-min-height:90vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:0 10%;
-}
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
 
-.hero-content h1{
-font-size:clamp(3rem,7vw,6rem);
-line-height:1;
-font-weight:800;
-letter-spacing:-3px;
-margin-bottom:24px;
-}
+        .logo span {
+            color: #60a5fa;
+        }
 
-.hero-content h1 span{
-background:linear-gradient(90deg,#60a5fa,#a78bfa);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
+        .nav-btn {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 999px;
+            background: #2563eb;
+            border: none;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.2s;
+        }
 
-.hero-content p{
-max-width:750px;
-font-size:1.2rem;
-line-height:1.8;
-color:#cbd5e1;
-margin:auto;
-margin-bottom:40px;
-}
+        .nav-btn:hover {
+            background: #3b82f6;
+            transform: translateY(-2px);
+        }
 
-.hero-buttons{
-display:flex;
-gap:16px;
-justify-content:center;
-flex-wrap:wrap;
-}
+        /* Hero */
 
-.primary{
-background:#2563eb;
-color:white;
-padding:16px 28px;
-border:none;
-border-radius:999px;
-font-size:1rem;
-font-weight:700;
-cursor:pointer;
-}
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+        }
 
-.secondary{
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(15px);
-color:white;
-border:1px solid rgba(255,255,255,.1);
-padding:16px 28px;
-border-radius:999px;
-cursor:pointer;
-}
+        .hero-content h1 {
+            font-size: clamp(3rem, 7vw, 6rem);
+            line-height: 1;
+            font-weight: 800;
+            letter-spacing: -3px;
+            margin-bottom: 24px;
+        }
 
-section{
-padding:120px 8%;
-}
+        .hero-content h1 span {
+            background: linear-gradient(90deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-.section-title{
-font-size:3rem;
-font-weight:800;
-margin-bottom:20px;
-text-align:center;
-}
+        .hero-content p {
+            max-width: 750px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #cbd5e1;
+            margin: 0 auto 40px;
+        }
 
-.section-desc{
-text-align:center;
-color:#94a3b8;
-max-width:800px;
-margin:auto;
-margin-bottom:70px;
-line-height:1.8;
-}
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:24px;
-}
+        .primary {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 16px 28px;
+            border: none;
+            border-radius: 999px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.2s;
+        }
 
-.card{
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
-backdrop-filter:blur(30px);
-padding:32px;
-border-radius:28px;
-transition:0.3s;
-}
+        .primary:hover {
+            background: #3b82f6;
+            transform: translateY(-2px);
+        }
 
-.card:hover{
-transform:translateY(-8px);
-border-color:#3b82f6;
-}
+        .secondary {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 16px 28px;
+            border-radius: 999px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
 
-.card h3{
-font-size:1.4rem;
-margin-bottom:15px;
-}
+        .secondary:hover {
+            background: rgba(255, 255, 255, 0.14);
+            transform: translateY(-2px);
+        }
 
-.card p{
-color:#cbd5e1;
-line-height:1.7;
-}
+        /* Sections */
 
-.timeline{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-margin-top:50px;
-}
+        section {
+            padding: 120px 8%;
+        }
 
-.step{
-text-align:center;
-padding:40px;
-background:rgba(255,255,255,.04);
-border-radius:24px;
-}
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
-.step-number{
-font-size:3rem;
-font-weight:800;
-color:#60a5fa;
-margin-bottom:10px;
-}
+        .section-desc {
+            text-align: center;
+            color: #94a3b8;
+            max-width: 800px;
+            margin: auto;
+            margin-bottom: 70px;
+            line-height: 1.8;
+        }
 
-.quote{
-text-align:center;
-padding:140px 10%;
-}
+        /* Cards */
 
-.quote h2{
-font-size:clamp(2rem,5vw,4rem);
-font-weight:800;
-line-height:1.2;
-}
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(300px, 1fr)
+            );
+            gap: 24px;
+        }
 
-.quote p{
-max-width:700px;
-margin:auto;
-margin-top:20px;
-font-size:1.1rem;
-color:#cbd5e1;
-}
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(30px);
+            padding: 32px;
+            border-radius: 28px;
+            transition: 0.3s;
+        }
 
-.cta{
-text-align:center;
-padding-bottom:140px;
-}
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #3b82f6;
+        }
 
-.cta-box{
-max-width:1000px;
-margin:auto;
-padding:80px;
-border-radius:36px;
-background:linear-gradient(
-135deg,
-rgba(37,99,235,.25),
-rgba(99,102,241,.25)
-);
-backdrop-filter:blur(25px);
-}
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
 
-.cta-box h2{
-font-size:3rem;
-margin-bottom:20px;
-}
+        .card p {
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
 
-.cta-box p{
-color:#e2e8f0;
-margin-bottom:30px;
-font-size:1.1rem;
-}
+        /* Timeline */
 
-footer{
-padding:40px;
-text-align:center;
-color:#64748b;
-}
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(250px, 1fr)
+            );
+            gap: 30px;
+            margin-top: 50px;
+        }
 
-@media(max-width:768px){
-.hero-content h1{
-letter-spacing:-2px;
-}
-.cta-box{
-padding:50px 30px;
-}
-}
-</style>
+        .step {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 24px;
+        }
+
+        .step-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #60a5fa;
+            margin-bottom: 10px;
+        }
+
+        .step h3 {
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+
+        /* Quote */
+
+        .quote {
+            text-align: center;
+            padding: 140px 10%;
+        }
+
+        .quote h2 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .quote p {
+            max-width: 700px;
+            margin: 20px auto 0;
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+
+        /* CTA */
+
+        .cta {
+            text-align: center;
+            padding-bottom: 140px;
+        }
+
+        .cta-box {
+            max-width: 1000px;
+            margin: auto;
+            padding: 80px;
+            border-radius: 36px;
+            background: linear-gradient(
+                135deg,
+                rgba(37, 99, 235, 0.25),
+                rgba(99, 102, 241, 0.25)
+            );
+            backdrop-filter: blur(25px);
+        }
+
+        .cta-box h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-box p {
+            color: #e2e8f0;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 40px;
+            text-align: center;
+            color: #64748b;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2.3rem;
+            }
+
+            .cta-box {
+                padding: 50px 30px;
+            }
+
+            .cta-box h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="background"></div>
+    <div class="background"></div>
 
-<nav>
-<div class="logo">Wan<span>der</span></div>
-<button class="primary" onclick="window.location.href='https://wanderagent.onrender.com/'">
-    Wander 시작하기
-</button>
-</nav>
+    <!-- Navigation -->
 
-<section class="hero">
-<div class="hero-content">
+    <nav>
+        <div class="logo">
+            Wan<span>der</span>
+        </div>
 
-<h1>
-의미 있는 휴식,<br>
-<span>가치 있는 지식</span>
-</h1>
+        <a
+            href="https://wanderagent.onrender.com/"
+            class="nav-btn"
+        >
+            시작하기
+        </a>
+    </nav>
 
-<p>
-숏폼을 무한히 넘기는 대신,
-당신의 남는 시간을 새로운 지식과 흥미로운 이야기로 채워보세요.
-Wander는 학생, 직장인, 노년층 모두가
-자신에게 꼭 필요한 정보를 발견하도록 돕습니다.
-</p>
 
-<div class="hero-buttons">
-<button class="primary">Wander 시작하기</button>
-<button class="secondary">서비스 알아보기</button>
-</div>
+    <!-- Hero -->
 
-</div>
-</section>
+    <section class="hero">
 
-<section>
+        <div class="hero-content">
 
-<h2 class="section-title">왜 Wander일까요?</h2>
+            <h1>
+                의미 있는 휴식,<br>
+                <span>가치 있는 지식</span>
+            </h1>
 
-<p class="section-desc">
-우리는 사용자의 체류 시간을 늘리는 것이 아니라,
-사용자의 시간을 더 가치 있게 만드는 것을 목표로 합니다.
-</p>
+            <p>
+                숏폼을 무한히 넘기는 대신,
+                당신의 남는 시간을 새로운 지식과 흥미로운 이야기로 채워보세요.
+                Wander는 학생, 직장인, 노년층 모두가
+                자신에게 꼭 필요한 정보를 발견하도록 돕습니다.
+            </p>
 
-<div class="cards">
+            <div class="hero-buttons">
 
-<div class="card">
-<h3>학생</h3>
-<p>
-관심사와 진로를 바탕으로
-최신 동향, 교양 지식, 미래 전망을 제공합니다.
-</p>
-</div>
+                <a
+                    href="https://wanderagent.onrender.com/"
+                    class="primary"
+                >
+                    Wander 시작하기
+                </a>
 
-<div class="card">
-<h3>직장인</h3>
-<p>
-출퇴근 시간에도 부담 없이 읽을 수 있는
-업계 동향과 실용적인 정보를 제공합니다.
-</p>
-</div>
+                <button
+                    class="secondary"
+                    onclick="document.querySelector('.timeline').scrollIntoView({ behavior: 'smooth' })"
+                >
+                    서비스 알아보기
+                </button>
 
-<div class="card">
-<h3>노년층</h3>
-<p>
-건강, 복지, 정책, 사기 예방 등
-일상에 도움이 되는 정보를 제공합니다.
-</p>
-</div>
+            </div>
 
-</div>
+        </div>
 
-</section>
+    </section>
 
-<section>
 
-<h2 class="section-title">어떻게 작동하나요?</h2>
+    <!-- Why Wander -->
 
-<p class="section-desc">
-Wander의 AI Agent는 관심사를 이해하고,
-신뢰할 수 있는 정보를 수집하고,
-쉽고 빠르게 이해할 수 있도록 정리합니다.
-</p>
+    <section>
 
-<div class="timeline">
+        <h2 class="section-title">
+            왜 Wander일까요?
+        </h2>
 
-<div class="step">
-<div class="step-number">01</div>
-<h3>관심사 파악</h3>
-<p>당신이 원하는 분야와 목적을 이해합니다.</p>
-</div>
+        <p class="section-desc">
+            우리는 사용자의 체류 시간을 늘리는 것이 아니라,
+            사용자의 시간을 더 가치 있게 만드는 것을 목표로 합니다.
+        </p>
 
-<div class="step">
-<div class="step-number">02</div>
-<h3>정보 수집</h3>
-<p>다양한 미디어와 검증된 소스에서 콘텐츠를 수집합니다.</p>
-</div>
+        <div class="cards">
 
-<div class="step">
-<div class="step-number">03</div>
-<h3>이해와 탐험</h3>
-<p>짧은 시간 안에 핵심을 이해하고 새로운 분야를 탐험합니다.</p>
-</div>
+            <div class="card">
+                <h3>학생</h3>
 
-</div>
+                <p>
+                    관심사와 진로를 바탕으로
+                    최신 동향, 교양 지식, 미래 전망을 제공합니다.
+                </p>
+            </div>
 
-</section>
+            <div class="card">
+                <h3>직장인</h3>
 
-<section>
+                <p>
+                    출퇴근 시간에도 부담 없이 읽을 수 있는
+                    업계 동향과 실용적인 정보를 제공합니다.
+                </p>
+            </div>
 
-<h2 class="section-title">Wander의 가치</h2>
+            <div class="card">
+                <h3>노년층</h3>
 
-<div class="cards">
+                <p>
+                    건강, 복지, 정책, 사기 예방 등
+                    일상에 도움이 되는 정보를 제공합니다.
+                </p>
+            </div>
 
-<div class="card">
-<h3>정보 격차 해소</h3>
-<p>
-누구나 쉽게 접근할 수 있는 지식을 제공합니다.
-</p>
-</div>
+        </div>
 
-<div class="card">
-<h3>의미 있는 휴식</h3>
-<p>
-재미는 유지하면서도 남는 것이 있는 콘텐츠를 제공합니다.
-</p>
-</div>
+    </section>
 
-<div class="card">
-<h3>건강한 디지털 문화</h3>
-<p>
-중독적인 소비보다 가치 있는 탐색을 장려합니다.
-</p>
-</div>
 
-</div>
+    <!-- How it works -->
 
-</section>
+    <section>
 
-<section class="quote">
+        <h2 class="section-title">
+            어떻게 작동하나요?
+        </h2>
 
-<h2>
-Scroll Less.<br>
-Know More.
-</h2>
+        <p class="section-desc">
+            Wander의 AI Agent는 관심사를 이해하고,
+            신뢰할 수 있는 정보를 수집하고,
+            쉽고 빠르게 이해할 수 있도록 정리합니다.
+        </p>
 
-<p>
-정보의 바다를 빠르게 떠내려가는 대신,
-천천히 걸으며 새로운 지식을 발견하는 경험.
-그것이 Wander입니다.
-</p>
+        <div class="timeline">
 
-</section>
+            <div class="step">
+                <div class="step-number">01</div>
 
-<section class="cta">
+                <h3>관심사 파악</h3>
 
-<div class="cta-box">
+                <p>
+                    당신이 원하는 분야와 목적을 이해합니다.
+                </p>
+            </div>
 
-<h2>오늘의 10분이 내일의 지식이 됩니다.</h2>
+            <div class="step">
+                <div class="step-number">02</div>
 
-<p>
-더 나은 정보 소비 습관을 시작해보세요.
-</p>
+                <h3>정보 수집</h3>
 
-<button class="primary">
-Wander 시작하기
-</button>
+                <p>
+                    다양한 미디어와 검증된 소스에서
+                    콘텐츠를 수집합니다.
+                </p>
+            </div>
 
-</div>
+            <div class="step">
+                <div class="step-number">03</div>
 
-</section>
+                <h3>이해와 탐험</h3>
 
-<footer>
-© 2026 Wander. Meaningful Rest. Valuable Knowledge.
-</footer>
+                <p>
+                    짧은 시간 안에 핵심을 이해하고
+                    새로운 분야를 탐험합니다.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Values -->
+
+    <section>
+
+        <h2 class="section-title">
+            Wander의 가치
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>정보 격차 해소</h3>
+
+                <p>
+                    누구나 쉽게 접근할 수 있는 지식을 제공합니다.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>의미 있는 휴식</h3>
+
+                <p>
+                    재미는 유지하면서도 남는 것이 있는
+                    콘텐츠를 제공합니다.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>건강한 디지털 문화</h3>
+
+                <p>
+                    중독적인 소비보다 가치 있는 탐색을 장려합니다.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Quote -->
+
+    <section class="quote">
+
+        <h2>
+            Scroll Less.<br>
+            Know More.
+        </h2>
+
+        <p>
+            정보의 바다를 빠르게 떠내려가는 대신,
+            천천히 걸으며 새로운 지식을 발견하는 경험.
+            그것이 Wander입니다.
+        </p>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta">
+
+        <div class="cta-box">
+
+            <h2>
+                오늘의 10분이 내일의 지식이 됩니다.
+            </h2>
+
+            <p>
+                더 나은 정보 소비 습관을 시작해보세요.
+            </p>
+
+            <a
+                href="https://wanderagent.onrender.com/"
+                class="primary"
+            >
+                Wander 시작하기
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+        © 2026 Wander. Meaningful Rest. Valuable Knowledge.
+    </footer>
 
 </body>
 </html>
+```
